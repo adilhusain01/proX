@@ -1,6 +1,6 @@
 # ProX pitch deck
 
-The pitch that goes in front of the platform demo. Fourteen slides, one idea each, in the same palette and type as the ProX site. Rizwan presents it.
+The pitch that goes in front of the platform demo. Fifteen slides, one idea each, in the same palette and type as the ProX site. Rizwan presents it.
 
 ## Getting started
 
@@ -46,7 +46,8 @@ The slides, in order:
 | 11 | `panik` | A hedge you babysit is a second job (Panik Kalm Panik) |
 | 12 | `closes` | It closes itself: Chainlink oracle, Solana receipt |
 | 13 | `proof` | $2.40 of real NVDA, really hedged |
-| 14 | `try` | Try it, with the QR code |
+| 14 | `model` | Two ways ProX earns, and the size of the market |
+| 15 | `try` | Try it, with the QR code |
 
 ## Changing it
 
@@ -61,10 +62,11 @@ Keep to one idea a slide. If a slide needs a second idea, it needs a second slid
 
 ## Still to do before recording
 
-- **The QR code.** Slide 14 has a dashed box and the text `[site link]`. Once the site has a public address, replace the box with the QR image (`npx qrcode -o pitch/assets/qr.png "<the address>"` makes one) and put the address in place of `[site link]`.
+- **The QR code.** Slide 15 has a dashed box and the text `[site link]`. Once the site has a public address, replace the box with the QR image (`npx qrcode -o pitch/assets/qr.png "<the address>"` makes one) and put the address in place of `[site link]`.
 - **The meme images.** The five files in `assets/` are stand-ins taken from imgflip's public templates. Replace each with a licensed copy under the same file name and nothing else needs to change. If a replacement has different proportions, adjust the `width` and `height` on its `<img>` and the caption positions beside it.
 - **Slide 3.** The Sleeping Shaq template has a line printed on its lower panel. The slide hides it by showing only the top 612 pixels of the image. Check it is still out of frame after replacing the file.
 - **Slide 13 is a claim.** It says a real short was opened and closed against 0.01 NVDA on Backpack. Say it only if that is what happened on the account you demo.
+- **Slide 14 has prices we chose.** $10 a month and $1 a protection are a launch plan, and the slide says so. Change them in the two lines on the slide and in its script, where the "one in a hundred" sum (about $900,000 a year) depends on the $10. The market figures are sourced: $3.22 billion of tokenized stocks on RWA.xyz on 3 October 2026, up from $951 million in March; 758,950 holders in July 2026; and Binance Research's base case of $349 billion by 2030, from "The RWA Activation Era", September 2026.
 - **Slide 8** is an illustration with invented prices, and the script says so.
 
 ## Assets

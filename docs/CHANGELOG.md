@@ -6,6 +6,8 @@ What changed in ProX, newest first. Add an entry whenever behaviour, the API, th
 
 ### Pitch deck
 
+- A business model slide was added before the close, at Rizwan's request: a $10 monthly subscription and a $1 flat fee per protection, beside the size of the market. The market figures come from RWA.xyz and Binance Research and are cited on the slide; the two prices are a launch plan and labelled as one. The deck is now fifteen slides.
+
 - `pitch/index.html` holds the fourteen-slide pitch, with Rizwan's spoken script in each slide and a small viewer for presenting, reading the script and printing to PDF. `pitch/README.md` covers how to edit it and what is left to do.
 - Five meme images in `pitch/assets` are stand-ins to be replaced with licensed copies. The QR code on the last slide is a placeholder until the site has a public address.
 - Checked: all fourteen slides render in a headless browser with nothing outside the canvas and no failed requests.
