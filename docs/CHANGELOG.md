@@ -7,6 +7,7 @@ What changed in ProX, newest first. Add an entry whenever behaviour, the API, th
 ### Handoff guide
 
 - `docs/DESIGN_HANDOFF.md` tells Rizwan and his AI how to bring the new frontend into a copy from before this work: a fresh clone, or nine layers taken one at a time with a check after each. `AGENTS.md` now says the design is settled and points there.
+- Checked: the nine steps were run in a throwaway worktree starting from the first commit. Afterwards the tree had no differences from `dev`.
 
 ### Redesign, landing page and the move to /app
 
