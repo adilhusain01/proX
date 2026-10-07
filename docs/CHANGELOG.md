@@ -4,6 +4,10 @@ What changed in ProX, newest first. Add an entry whenever behaviour, the API, th
 
 ## 2026-10-07
 
+### Handoff guide
+
+- `docs/DESIGN_HANDOFF.md` tells Rizwan and his AI how to bring the new frontend into a copy from before this work: a fresh clone, or nine layers taken one at a time with a check after each. `AGENTS.md` now says the design is settled and points there.
+
 ### Redesign, landing page and the move to /app
 
 Asked for by Adil: make the interface and its flow first-rate, use the full width, add a landing page that explains the idea visually, and put the app under `/app`.

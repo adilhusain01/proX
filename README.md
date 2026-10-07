@@ -2,7 +2,7 @@
 
 Temporary downside protection for tokenized stocks held on Backpack. You hold NVDA on Backpack, pick a protection level and a time range, and ProX opens a matching short on the Backpack equity perpetual, watches margin and basis, and closes it reduce-only once the window has ended and prices have converged. A Chainlink CRE workflow acts as the convergence oracle; the hashes of what happened are written to Solana mainnet as Memo transactions.
 
-The product spec is in `docs/prd.md`. What has changed since, by date, is in `docs/CHANGELOG.md`.
+The product spec is in `docs/prd.md`. What has changed since, by date, is in `docs/CHANGELOG.md`. If your copy predates 7 October 2026, `docs/DESIGN_HANDOFF.md` is the step-by-step way onto the current frontend.
 
 ## Layout
 
