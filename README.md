@@ -93,6 +93,7 @@ The same trick works for `DATABASE_URL`, `OPERATOR_WALLETS` and `TRADING_ENABLED
 | `ECONNREFUSED ...:5432` at boot | `DATABASE_URL` points at a Postgres that is not there | Point it at your own; check the port with `lsof -nP -iTCP -sTCP:LISTEN \| grep postgres` |
 | "this wallet is not allowed to operate the app" | The connected wallet is not in `OPERATOR_WALLETS` | Add its address and restart the backend |
 | The page has layout but no colours or fonts after a style change | The dev server kept a stale stylesheet | Restart `next dev` |
+| The hedge never closes on convergence | The oracle is not running: the `cre` tool is missing, `CRE_PROJECT_DIR` points at another machine, or `backendUrl` in the oracle config is the wrong port | `GET /api/health` shows the last simulation run under `creSimulation`; fix whichever of the three applies |
 | `backend/.env is incomplete or invalid` | A required value is blank | The message lists each missing name |
 
 ## Working together
@@ -103,6 +104,7 @@ The code lives at `github.com/adilhusain01/proX` (private). Adil and Rizwan both
 - `dev` is where work happens. Branch from it for anything larger (`git switch -c time-ranges dev`), and merge back with a pull request.
 - `dev` goes into `main` through a pull request once it has been run and checked.
 - Each machine keeps its own `backend/.env`, `cre/.env` and `frontend/.env.local`. They are ignored by git and must never be committed. After pulling, run `pnpm install`.
+- Before committing, run `git status` and read the list. Key files, wallet files, cookies and database dumps are ignored by name in `.gitignore`; anything secret that does not match those names needs a new rule first.
 
 ```bash
 git clone git@github.com:adilhusain01/proX.git && cd proX

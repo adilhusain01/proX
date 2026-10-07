@@ -1,14 +1,40 @@
+# Dependencies and build output
 node_modules/
 .next/
+out/
 dist/
 build/
 coverage/
-*.log
-.DS_Store
+*.tsbuildinfo
+next-env.d.ts
+.pnpm-store/
+.turbo/
+.vercel/
+
+# Secrets. Only the .env.example files are committed, and they hold names, not values.
 .env
 .env.*
 !.env.example
+*.pem
+*.key
+*.p12
+*-keypair.json
+id.json
+wallet*.json
+cookie*.txt
+
+# Local databases and dumps
 .pgdata/
-*.tsbuildinfo
+*.sql.gz
+*.dump
+
+# Chainlink CRE build output
 cre/**/.cre_build_tmp*
 cre/**/*.wasm
+
+# Logs, OS and editor files
+*.log
+.DS_Store
+.vscode/
+.idea/
+*.swp

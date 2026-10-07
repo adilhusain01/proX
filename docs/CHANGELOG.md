@@ -66,9 +66,16 @@ Asked for by Adil: the grey skeleton box looked wrong.
 - `main` is the stable branch and `dev` is the working branch. The README has the workflow.
 - Checked before the first commit: the three `.env` files are ignored, and none of their secret values appears in any committed file.
 
+### Ignore rules
+
+- The root `.gitignore` now also covers key and wallet files (`*.pem`, `*.key`, `*-keypair.json`, `id.json`, `wallet*.json`), cookie files, database dumps, editor folders, and the Vercel, Turbo and pnpm store folders.
+- `frontend/.gitignore` and `cre/.gitignore` no longer ignore their own `.env.example`.
+- Checked: the working tree is clean, the only env files tracked are the three `.env.example` files, and no untracked file is left outside the ignore rules.
+
 ### State at the end of the day
 
 - Typecheck passes for backend and frontend. Lint is clean. Tests: 63 in backend, 24 in core.
 - Seen in a headless browser at 1280 and 390 wide, signed in, against the real Backpack account holding 0.01 NVDA, with trading switched off: portfolio, protect and advanced.
 - Not yet seen with data: the live protection page and the receipt.
+- The oracle cannot run on Adil's Mac yet: the Chainlink CRE command-line tool is not installed there, and the oracle config points at port 4000 while that backend runs on 4100. A hedge opened there closes by the Close now button, the risk engine or the hard stop, not by convergence.
 - Not yet done: an activation through the UI. Rizwan reports the same engine opening and closing a 0.01 NVDA short from the command line.
