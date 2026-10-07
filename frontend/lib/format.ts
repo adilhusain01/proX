@@ -17,7 +17,8 @@ export function signedMoney(value: string | number | null | undefined): string {
   if (value === null || value === undefined) return '—'
   const n = Number(value)
   if (!Number.isFinite(n)) return '—'
-  const text = money(Math.abs(n), Math.abs(n) < 1)
+  // Four decimals only when two would round a real amount down to nothing.
+  const text = money(Math.abs(n), Math.abs(n) > 0 && Math.abs(n) < 0.01)
   return n > 0 ? `+${text}` : n < 0 ? `-${text}` : text
 }
 
@@ -45,6 +46,12 @@ export function quantity(value: string | null | undefined, symbol?: string): str
 export function when(iso: string | null | undefined): string {
   if (!iso) return '—'
   return new Date(iso).toLocaleString(undefined, { dateStyle: 'medium', timeStyle: 'short' })
+}
+
+/** A date without the year, for places where the year is obvious: "Oct 7, 7:00 PM". */
+export function whenShort(iso: string | null | undefined): string {
+  if (!iso) return '—'
+  return new Date(iso).toLocaleString(undefined, { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' })
 }
 
 export function duration(seconds: number): string {

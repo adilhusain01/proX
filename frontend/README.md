@@ -24,13 +24,27 @@ NEXT_PUBLIC_API_URL=http://localhost:4100 npx next dev -p 3200
 
 | Route | File | What it shows |
 |---|---|---|
-| `/` | `app/page.tsx` | Portfolio value, protected and exposed value, stocks, account health, recent protections |
-| `/protect` | `app/protect/page.tsx` | Stock, protection level, time range, and the live preview with the Activate button |
-| `/protection/[id]` | `app/protection/[id]/page.tsx` | A live protection: PnL, health, timeline, convergence checks, orders, Solana anchors |
-| `/protection/[id]/receipt` | `app/protection/[id]/receipt/page.tsx` | The completed protection report |
-| `/advanced` | `app/advanced/page.tsx` | Raw Backpack account data and the latest oracle reports |
+| `/` | `app/page.tsx` | The public landing page: the idea as a chart, a worked example, how it works, the safeguards |
+| `/app` | `app/app/page.tsx` | Portfolio value, how much is hedged, the stocks, the market session and margin |
+| `/app/protect` | `app/app/protect/page.tsx` | Three steps (stock, how much, how long) and a live summary with the Protect button |
+| `/app/protection/[id]` | `app/app/protection/[id]/page.tsx` | A live protection: the result, its stage, the chart, margin, and the record |
+| `/app/protection/[id]/receipt` | `app/app/protection/[id]/receipt/page.tsx` | The finished protection: result, statement, proof |
+| `/app/advanced` | `app/app/advanced/page.tsx` | The Backpack account as tables, backend and oracle state, raw JSON on request |
 
-`components/app-shell.tsx` is the frame: the brand, the status chips, Sign out and the section tabs. `components/sign-in-gate.tsx` holds everything else behind an operator session.
+`app/layout.tsx` wraps everything in the providers. `app/app/layout.tsx` adds `components/app-shell.tsx` (brand, section tabs, market session, wallet, sign out) and `components/sign-in-gate.tsx`, so only `/app` needs a wallet. The old paths (`/protect`, `/advanced`, `/protection/...`) redirect, set in `next.config.ts`.
+
+Pieces worth knowing:
+
+| Component | Purpose |
+|---|---|
+| `components/session-card.tsx` | The US market session and the time until it opens |
+| `components/coverage-bar.tsx` | Hedged against exposed |
+| `components/margin-meter.tsx` | Maintenance margin against the liquidation line |
+| `components/window-track.tsx` | A protection window on a line: now, window end, latest close |
+| `components/scenario-table.tsx` | What a price move does with and without the hedge |
+| `components/result-equation.tsx` | Stock plus hedge minus costs equals net |
+| `components/landing/*` | The hero chart, the worked example and the live session line |
+| `lib/hedge.ts` | The sums those share: the outcome of a move, shorts already on Backpack, time until |
 
 ## Data
 
@@ -51,6 +65,9 @@ The look comes from the Umbra wallet (`adilhusain01/umbra`, files `web/src/theme
 - **Shared pieces** are in `components/umbra.tsx`: `SectionLabel`, `StatTile` and `LineRow`. The restyled primitives are in `components/ui`.
 - **Loading** is always `components/loader.tsx`, the Gather spinner from `loading-dev` with an optional caption. Use `<Loader label="..." />` for a page and `<Loader compact />` inside a card. Do not use skeleton boxes.
 - There is one theme. Umbra has no dark mode, so neither does this.
+- **Layout**: up to 1240 pixels wide. Sections are separated by space and hairlines; a filled surface is kept for the one thing on a page that needs to stand apart, such as the Protect summary.
+- **Motion**: pressable things scale to 0.97. Transitions list the properties they change and use `ease-out-strong`. The only entrance animation is the hero chart drawing once.
+- **Words**: say what happens in plain terms. A button names its action ("Protect $2.40 of NVDA"), and an empty or failed state says what to do next.
 
 Take colours, radii and type from these tokens. Do not add new hex values in components.
 

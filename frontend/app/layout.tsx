@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from 'next'
 import { Bodoni_Moda, Geist_Mono, Mulish } from 'next/font/google'
-import { AppShell } from '@/components/app-shell'
 import { Providers } from '@/components/providers'
 import './globals.css'
 
@@ -20,9 +19,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${bodoni.variable} ${mulish.variable} ${geistMono.variable} h-full`}>
       <body className="flex min-h-full flex-col">
-        <Providers>
-          <AppShell>{children}</AppShell>
-        </Providers>
+        <Providers>{children}</Providers>
       </body>
     </html>
   )

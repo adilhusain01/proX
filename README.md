@@ -11,7 +11,7 @@ The product spec is in `docs/prd.md`. What has changed since, by date, is in `do
 | `packages/core` | Pure logic shared by the backend and the oracle: US equity session engine, basis maths, report codec |
 | `backend` | Fastify API, Backpack adapter (REST + WebSocket), protection state machine, risk engine, workers, CRE report ingest, Solana anchoring |
 | `cre` | Chainlink CRE project with the `convergence-oracle` workflow |
-| `frontend` | Next.js app: portfolio, protect, live protection, receipt, advanced |
+| `frontend` | Next.js app: a public landing page at `/`, and the app at `/app` (portfolio, protect, live protection, receipt, advanced) |
 
 Each of `frontend` and `cre/convergence-oracle` has its own README.
 
@@ -59,7 +59,7 @@ Prerequisites: Node 22+, pnpm 11, Bun 1.2+, the CRE CLI (`cre`), a Postgres data
    pnpm dev:backend
    ```
 
-5. Start the frontend and open http://localhost:3000.
+5. Start the frontend. http://localhost:3000 is the landing page; the app is at http://localhost:3000/app.
 
    ```bash
    pnpm dev:frontend
