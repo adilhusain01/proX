@@ -19,6 +19,19 @@ Clicking the right two thirds of the slide goes forward; the left third goes bac
 
 To make a PDF, print from the browser (Cmd+P) and save as PDF. Each slide becomes one page at 1920 by 1080.
 
+## The narrated video
+
+`video/make.py` turns the deck into a narrated video: each slide's script is spoken by an ElevenLabs voice, the slide stays up for as long as its line takes, and slides cross-fade.
+
+```bash
+python3 pitch/video/make.py            # writes pitch/video/out/prox-pitch.mp4
+python3 pitch/video/make.py --no-tts   # rebuild from cached audio, spending nothing
+```
+
+It needs ffmpeg, Node, the frontend's `node_modules` (for the headless browser), and `pitch/.env` holding `ELEVENLABS_API_KEY`. That file is ignored by git. Audio is cached by its text in `video/out/audio`, so after a wording change only the changed lines are paid for. `video/out/timing.json` lists when each slide starts.
+
+The voice is Daniel, one of ElevenLabs' built-in voices, set at the top of `make.py`. A free ElevenLabs plan can use built-in voices through the API but not voices from the shared library. The free plan also has 10,000 characters a month and asks for attribution; check its terms before a commercial use.
+
 ## How the file is built
 
 Everything is in `index.html`.
@@ -62,7 +75,7 @@ Keep to one idea a slide. If a slide needs a second idea, it needs a second slid
 
 ## Still to do before recording
 
-- **The QR code.** Slide 15 has a dashed box and the text `[site link]`. Once the site has a public address, replace the box with the QR image (`npx qrcode -o pitch/assets/qr.png "<the address>"` makes one) and put the address in place of `[site link]`.
+- **The QR code** on slide 15 is `assets/qr.png` and points at `https://prox-weld.vercel.app`. If the address changes, make a new image at that path and change the text beside it.
 - **The meme images.** The five files in `assets/` are stand-ins taken from imgflip's public templates. Replace each with a licensed copy under the same file name and nothing else needs to change. If a replacement has different proportions, adjust the `width` and `height` on its `<img>` and the caption positions beside it.
 - **Slide 3.** The Sleeping Shaq template has a line printed on its lower panel. The slide hides it by showing only the top 612 pixels of the image. Check it is still out of frame after replacing the file.
 - **Slide 13 is a claim.** It says a real short was opened and closed against 0.01 NVDA on Backpack. Say it only if that is what happened on the account you demo.

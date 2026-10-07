@@ -38,3 +38,6 @@ cre/**/*.wasm
 .vscode/
 .idea/
 *.swp
+
+# Rendered narration and video. Rebuilt by pitch/video/make.py.
+pitch/video/out/

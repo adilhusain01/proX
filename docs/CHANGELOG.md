@@ -6,6 +6,8 @@ What changed in ProX, newest first. Add an entry whenever behaviour, the API, th
 
 ### Pitch deck
 
+- The script was rewritten for the video: shorter and plainer, about three minutes spoken. `pitch/video/make.py` builds a narrated video from the deck with an ElevenLabs voice. The last slide now carries a real QR code for `https://prox-weld.vercel.app`, checked by decoding it.
+
 - A business model slide was added before the close, at Rizwan's request: a $10 monthly subscription and a $1 flat fee per protection, beside the size of the market. The market figures come from RWA.xyz and Binance Research and are cited on the slide; the two prices are a launch plan and labelled as one. The deck is now fifteen slides.
 
 - `pitch/index.html` holds the fourteen-slide pitch, with Rizwan's spoken script in each slide and a small viewer for presenting, reading the script and printing to PDF. `pitch/README.md` covers how to edit it and what is left to do.
