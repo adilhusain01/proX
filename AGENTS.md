@@ -11,6 +11,10 @@ Adil asked for this on 2026-10-07. Whenever you change behaviour, the API, the d
 - `frontend/README.md` or `cre/convergence-oracle/README.md`: if that part changed.
 - The vault note `Projects/ProX.md`, with a line in the vault log.
 
+## The pitch deck
+
+`pitch/index.html` is the deck and `pitch/README.md` explains it. Each slide is one `<section>` with inline styles, and its spoken script is the `<aside>` at its end. Edit it there. Do not rebuild it in a slide tool or publish it to a hosted account. Rizwan is the presenter; name nobody else in it.
+
 ## Rules that matter here
 
 - Work on `dev` or a branch off it. Never commit to `main`; it changes only through a pull request.

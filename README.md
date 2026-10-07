@@ -11,6 +11,7 @@ The product spec is in `docs/prd.md`. What has changed since, by date, is in `do
 | `packages/core` | Pure logic shared by the backend and the oracle: US equity session engine, basis maths, report codec |
 | `backend` | Fastify API, Backpack adapter (REST + WebSocket), protection state machine, risk engine, workers, CRE report ingest, Solana anchoring |
 | `cre` | Chainlink CRE project with the `convergence-oracle` workflow |
+| `pitch` | The pitch deck as one HTML file, with the spoken script in it. Open `pitch/index.html`; `pitch/README.md` says how to edit it |
 | `frontend` | Next.js app: a public landing page at `/`, and the app at `/app` (portfolio, protect, live protection, receipt, advanced) |
 
 Each of `frontend` and `cre/convergence-oracle` has its own README.

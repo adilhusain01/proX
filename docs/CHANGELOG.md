@@ -4,6 +4,12 @@ What changed in ProX, newest first. Add an entry whenever behaviour, the API, th
 
 ## 2026-10-07
 
+### Pitch deck
+
+- `pitch/index.html` holds the fourteen-slide pitch, with Rizwan's spoken script in each slide and a small viewer for presenting, reading the script and printing to PDF. `pitch/README.md` covers how to edit it and what is left to do.
+- Five meme images in `pitch/assets` are stand-ins to be replaced with licensed copies. The QR code on the last slide is a placeholder until the site has a public address.
+- Checked: all fourteen slides render in a headless browser with nothing outside the canvas and no failed requests.
+
 ### Handoff guide
 
 - `docs/DESIGN_HANDOFF.md` tells Rizwan and his AI how to bring the new frontend into a copy from before this work: a fresh clone, or nine layers taken one at a time with a check after each. `AGENTS.md` now says the design is settled and points there.
